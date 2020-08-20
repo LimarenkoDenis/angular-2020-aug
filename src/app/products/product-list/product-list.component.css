@@ -1,0 +1,9 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+app-card {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}

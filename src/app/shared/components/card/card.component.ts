@@ -11,10 +11,13 @@ export class CardComponent implements OnInit {
   @Input()
   product: IProduct;
 
+  @Input()
+  isOdd: boolean;
+
   @Output()
   likeProductEvent: EventEmitter<number> = new EventEmitter();
 
-
+  date: Date = new Date();
   productImg: string = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
   productAlt = 'Photo of a Shiba Inu';
 

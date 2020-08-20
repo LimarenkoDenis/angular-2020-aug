@@ -1,99 +1,45 @@
 import { IProduct } from './../models/product.interface';
-export const products: IProduct[] = [{
-  "id": 0,
-  "title": "Cola",
-  "description": "fwrkgfhergk",
-  "photo": "http://thejizn.com/wp-content/uploads/2016/06/coca-cola-stash-can-12-oz-1_1.jpg",
-  "price": 12,
-  "amount": 1,
-  "type": "drink"
-},
-  {
-    "id": 1,
-    "title": "Pepsi",
-    "description": "fwrkgfhergk",
-    "photo": "http://thejizn.com/wp-content/uploads/2016/06/coca-cola-stash-can-12-oz-1_1.jpg",
-    "price": 10,
-    "amount": 1,
-    "type": "drink"
-},
-  {
-    "id": 3,
-    "title": "Big Mac",
-    "description": "fwrkgfhergk",
-    "photo": "http://thejizn.com/wp-content/uploads/2016/06/coca-cola-stash-can-12-oz-1_1.jpg",
-    "price": 22,
-    "amount": 1,
-    "type": "sandwich"
-},
-  {
-    "id": 4,
-    "title": "Big Tasty",
-    "description": "fwrkgfhergk",
-    "photo": "http://thejizn.com/wp-content/uploads/2016/06/coca-cola-stash-can-12-oz-1_1.jpg",
-    "price": 45,
-    "amount": 1,
-    "type": "sandwich"
-},
-  {
-    "id": 5,
-    "title": "pie",
-    "description": "fwrkgfhergk",
-    "photo": "http://thejizn.com/wp-content/uploads/2016/06/coca-cola-stash-can-12-oz-1_1.jpg",
-    "price": 10,
-    "amount": 1,
-    "type": "dessert"
-},
-  {
-    "id": 6,
-    "title": "chocolate",
-    "description": "fwrkgfhergk",
-    "photo": "http://thejizn.com/wp-content/uploads/2016/06/coca-cola-stash-can-12-oz-1_1.jpg",
-    "price": 22,
-    "amount": 1,
-    "type": "dessert"
-},
-  {
-    "id": 7,
-    "title": "ice cream",
-    "description": "fwrkgfhergk",
-    "photo": "http://thejizn.com/wp-content/uploads/2016/06/coca-cola-stash-can-12-oz-1_1.jpg",
-    "price": 45,
-    "amount": 1,
-    "type": "dessert"
-},
-  {
-    "id": 8,
-    "title": "Orange juice small",
-    "description": "fwrkgfhergk",
-    "photo": "https://www.mcdonalds.ua/content/dam/Ukraine/Item_Images/hero.JuiceOrangeSmall.png",
-    "price": 45,
-    "amount": 1,
-    "type": "drink"
-},
-  {
-    "id": 9,
-    "title": "Coffee 'Late' small",
-    "description": "fwrkgfhergk",
-    "photo": "https://www.mcdonalds.ua/content/dam/Ukraine/Item_Images/hero.CoffeeLatteSmall.png",
-    "price": 45,
-    "amount": 1,
-    "type": "drink"
-},
-  {
-    "title": "dddd",
-    "description": "2222",
-    "photo": "222",
-    "price": "2222",
-    "type": "dessert",
-    "id": 12
-},
-  {
-    "title": "sdgsg",
-    "description": "fgdfgfdgdfg",
-    "photo": "dfgdfgdf",
-    "price": "dfgdfgdfg",
-    "type": "dessert",
-    "id": 13
-}
-]
+export const products: IProduct[] = [ {
+  "description" : "На фото наша цукерка з цілого інжиру з горіхом макадамия в чорному шоколаді та з крихтою помело",
+  "id" : 0,
+  "photo" : "https://static.tildacdn.com/tild3662-3233-4635-b133-663735363364/80718754_61885090535.jpg",
+  "price" : 30,
+  "title" : "Iнжир в шоколадi",
+  "type" : "candy"
+}, {
+  "description" : "Це справжній марципан з нотою цитруса в чорному шоколаді.",
+  "id" : 2,
+  "photo" : "https://static.tildacdn.com/tild3135-3732-4233-b238-353234363431/75266909_25600337074.jpg",
+  "price" : 30,
+  "title" : "Марципан-Апельсин",
+  "type" : "candy"
+}, {
+  "description" : "Паста мигдалева 100% без цукру та шкiдливих домiшок",
+  "id" : 3,
+  "photo" : "https://static.tildacdn.com/tild6335-3666-4765-a363-343563306334/photo532117802735643.jpg",
+  "price" : 200,
+  "title" : "Паста мигдалева 100%",
+  "type" : "pasta"
+}, {
+  "description" : "Наше печиво на основі мигдалю і хрусткого кунжуту та полите справжнім чорним шоколадом",
+  "id" : 4,
+  "photo" : "https://static.tildacdn.com/tild3238-3334-4539-a465-393931303933/73319503_15281164942.jpg",
+  "price" : 30,
+  "title" : "Печиво мигдальне",
+  "type" : "cookie"
+}, {
+
+  "description" : "Мед — зимова насолода. Не знаємо, чи сумуєте ви, чи радієте, дивлячись на цю не зимову картинку за вікном, але коли мова йдеться про мед — зима за календарем",
+  "id" : 5,
+  "photo" : "https://static.tildacdn.com/tild3435-3839-4865-b866-303434353562/81509509_16662992465.jpg",
+  "price" : 10,
+  "title" : "Мед",
+  "type" : "med"
+}, {
+  "description" : "Конго",
+  "id" : 5,
+  "photo" : "https://static.tildacdn.com/tild3165-3936-4637-b438-396261303138/64520834_23684515134.jpg",
+  "price" : 20,
+  "title" : "Конго",
+  "type" : "candy"
+} ];

@@ -6,4 +6,5 @@ export interface IProduct {
   price?: any;
   amount?: any;
   type: string;
+  created?: string;
 }

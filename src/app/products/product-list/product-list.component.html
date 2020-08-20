@@ -1,6 +1,44 @@
-<app-card (likeProductEvent)="likeProduct($event)" [product]="products[0]"></app-card>
-<app-card (likeProductEvent)="likeProduct($event)" [product]="products[1]"></app-card>
-<app-card (likeProductEvent)="likeProduct($event)" [product]="products[2]"></app-card>
+
+<button (click)="switchView()">Switch View</button>
+
+
+<mat-form-field class="example-full-width">
+  <mat-label>Search by products</mat-label>
+  <!-- <input [formControl]="searchTextControl" matInput placeholder="Search by products"> -->
+  <input #searchTextControl matInput placeholder="Search by products">
+  <mat-hint>Results: {{ getResults(products, searchTextControl.value) }}</mat-hint>
+  <!-- resultAmount -->
+</mat-form-field>
+
+
+
+<ng-template #elseBlock>
+  <div class="product-list">
+
+    <div [ngSwitch]="viewType">
+
+      <ng-template [ngSwitchCase]="'grid'">
+        <app-producs-grid></app-producs-grid>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="'list'">
+        <app-card
+          *ngFor="let product of products | filter: searchTextControl.value ; index as i; odd as isOdd"
+          (likeProductEvent)="likeProduct($event)"
+          [isOdd]="isOdd"
+          [product]="product">
+        </app-card>
+      </ng-template>
+
+    </div>
+  </div>
+</ng-template>
+
+<mat-progress-bar *ngIf="isLoading; else elseBlock" mode="indeterminate"></mat-progress-bar>
+
+
+
+
 <!-- <app-card></app-card>
 <app-card></app-card>
 <app-card></app-card>
