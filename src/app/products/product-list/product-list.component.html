@@ -7,17 +7,14 @@
   <!-- <input [formControl]="searchTextControl" matInput placeholder="Search by products"> -->
   <input #searchTextControl matInput placeholder="Search by products">
   <mat-hint>Results: {{ getResults(products, searchTextControl.value) }}</mat-hint>
-  <!-- resultAmount -->
 </mat-form-field>
 
 
 
 <ng-template #elseBlock>
-  <div class="product-list">
+    <div [ngSwitch]="viewType" class="product-list">
 
-    <div [ngSwitch]="viewType">
-
-      <ng-template [ngSwitchCase]="'grid'">
+      <ng-template [ngSwitchCase]="'grid'" >
         <app-producs-grid></app-producs-grid>
       </ng-template>
 
@@ -31,7 +28,6 @@
       </ng-template>
 
     </div>
-  </div>
 </ng-template>
 
 <mat-progress-bar *ngIf="isLoading; else elseBlock" mode="indeterminate"></mat-progress-bar>
