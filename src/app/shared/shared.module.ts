@@ -10,6 +10,11 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ResultAmountPipe } from './pipes/result-amount.pipe';
 import { AclDirective } from './directives/acl/acl.directive';
+import { NoopInterceptor } from './interceptors/noop.interceptor';
+import { LogInterceptor } from './interceptors/log.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RedirectInterceptor } from './interceptors/redirect.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,24 @@ import { AclDirective } from './directives/acl/acl.directive';
     AclDirective
   ],
   providers: [
-    FilterPipe
+    FilterPipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NoopInterceptor,
+      multi: true
+    }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LogInterceptor,
+      multi: true
+    }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RedirectInterceptor,
+      multi: true
+    }
   ]
 })
 export class SharedModule { }
