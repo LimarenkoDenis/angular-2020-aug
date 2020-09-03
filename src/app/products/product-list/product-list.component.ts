@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 
-import { delay } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProductComponent } from '../add-product/add-product.component';
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +23,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private filterPipe: FilterPipe,
-    private productService: ProductService
+    private productService: ProductService,
+    private dialog: MatDialog
   ) {
     setTimeout(() => {
       // this.products = products;
@@ -36,12 +39,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService
-      .getProducts()
-      .subscribe(result => {
-        console.log('result: ', result);
-        this.products = result;
-      });
+    this.getProducts();
   }
 
   likeProduct(id: number ) {
@@ -53,4 +51,31 @@ export class ProductListComponent implements OnInit {
     return this.filterPipe.transform(value, searchText).length;
   }
 
+  openAddProductDialog(): void {
+    const addProductDialogRef = this.dialog.open(AddProductComponent);
+
+    addProductDialogRef.afterClosed().pipe(
+      map(result => {
+        console.log('add product: ', result);
+
+        return result;
+      })
+    ).subscribe((result: IProduct) => {
+      this.productService
+        .createProduct(result)
+        .subscribe(createdProduct => {
+          console.log('created: ', createdProduct);
+          this.getProducts();
+        });
+    });
+  }
+
+  private getProducts(): void {
+    this.productService
+      .getProducts()
+      .subscribe(result => {
+        console.log('result: ', result);
+        this.products = result;
+      });
+  }
 }

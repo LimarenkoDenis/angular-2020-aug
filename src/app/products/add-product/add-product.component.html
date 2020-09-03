@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Add Product</h1>
+<div mat-dialog-content>
+    <form>
+        <div class="form-group">
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <input matInput name="title" id="title" [formControl]="formGroup.controls.title">
+                    <mat-error *ngIf="formGroup.controls.title.errors?.required">Title: this field is required</mat-error>
+                    <mat-error *ngIf="formGroup.controls.title.errors?.minlength">Title: at least 5 symbols required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Decription</mat-label>
+                    <textarea matInput name="decription" id="decription" [formControl]="formGroup.controls.description"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Price</mat-label>
+                    <input matInput name="price" id="price" [formControl]="formGroup.controls.price">
+                    <mat-error *ngIf="formGroup.controls.price.errors?.required">Price: this field is required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    <!-- <mat-error *ngIf="form.invalid && form.touched">Please fix the data</mat-error> -->
+    <!-- <pre>Data: {{ data | json }}</pre>
+    <pre>Form value: {{ formGroup.value | json }}</pre>
+    <pre>Form errors: {{ formGroup.errors | json }}</pre>
+    <pre>Form valid: {{ formGroup.valid }}</pre>
+
+    <pre>Title errors: {{ formGroup.controls.title.errors | json }}</pre>
+    <pre>Price errors: {{ formGroup.controls.price.errors | json }}</pre> -->
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-flat-button color="primary" (click)="addProduct()">Add Product</button>
+    <button mat-button mat-dialog-close color="primary">Close</button>
+</div>

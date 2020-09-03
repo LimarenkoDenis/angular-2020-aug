@@ -9,6 +9,9 @@
   <mat-hint>Results: {{ getResults(products, searchTextControl.value) }}</mat-hint>
 </mat-form-field>
 
+<section>
+  <button mat-flat-button color="primary" (click)="openAddProductDialog()">Add Product</button>
+</section>
 
 
 <ng-template #elseBlock>

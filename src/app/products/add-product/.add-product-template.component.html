@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Add Product</h1>
+<div mat-dialog-content>
+    <form #form="ngForm">
+        <div class="form-group">
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <input required matInput [(ngModel)]="data.title" #title name="title" #title="ngModel" id="title">
+                    <mat-error *ngIf="title.invalid || !title.pristine">Title: this field is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Decription</mat-label>
+                    <textarea matInput [(ngModel)]="data.description" #decription name="decription" #decription="ngModel" id="title"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Price</mat-label>
+                    <input required matInput [(ngModel)]="data.price" #price name="price" #price="ngModel" id="price">
+                    <mat-error *ngIf="price.invalid || !price.pristine">Title: this field is required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    <mat-error *ngIf="form.invalid && form.touched">Please fix the data</mat-error>
+    <pre>Data: {{ data | json }}</pre>
+    <pre>Form value: {{ form.value | json }}</pre>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-flat-button color="primary">Add Product</button>
+    <button mat-button mat-dialog-close color="primary">Close</button>
+</div>
