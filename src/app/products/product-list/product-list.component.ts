@@ -27,18 +27,6 @@ export class ProductListComponent implements OnInit {
       // this.products = products;
       this.isLoading = false;
     }, 0);
-
-    this.productService.createProduct({
-      description: 'Test created product',
-      id : 0,
-      photo : 'https://static.tildacdn.com/tild3662-3233-4635-b133-663735363364/80718754_61885090535.jpg',
-      price : 300,
-      title : 'Test',
-      type : 'candy'
-    })
-    .subscribe(result => {
-      console.log('create product: ', result);
-    });
   }
 
   switchView(){
