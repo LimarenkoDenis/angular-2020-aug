@@ -1,0 +1,7 @@
+<h1>Product:</h1>
+<p *ngIf="product; else noData">{{ product | json }}</p>
+<button (click)="navigateToProductsList()">Go to the list</button>
+
+<ng-template #noData>
+    <h1>No date</h1>
+</ng-template>

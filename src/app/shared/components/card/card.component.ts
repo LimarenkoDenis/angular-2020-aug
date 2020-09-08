@@ -1,6 +1,7 @@
 import { IProduct } from './../../../products/models/product.interface';
 import { products } from './../../../products/__mock__/products';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -21,7 +22,9 @@ export class CardComponent implements OnInit {
   productImg: string = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
   productAlt = 'Photo of a Shiba Inu';
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
@@ -31,11 +34,22 @@ export class CardComponent implements OnInit {
 
 
   likeProduct(id: number) {
-    this.likeProductEvent.emit(id)
+    this.likeProductEvent.emit(id);
   }
 
   hoverProduct() {
     console.log('Hover');
 
+  }
+
+  navigateToProduct(id: number): void {
+    this.router.navigate(['/products', id], {
+      queryParams: {
+        test: true,
+        productId: id,
+        data: 'encodeddata'
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 }

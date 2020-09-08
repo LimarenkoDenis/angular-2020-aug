@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,10 @@ export class HeaderComponent implements OnInit {
   aboutMenuItem = 'About Us 1111';
   totalPrice = 100;
 
-  constructor() {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
     setTimeout(() => {
       this.aboutMenuItem = 'About Conpany';
       this.totalPrice = 200;
@@ -22,5 +27,10 @@ export class HeaderComponent implements OnInit {
 
   getTotalPrice(): number {
     return this.totalPrice;
+  }
+
+  onLogOut(): void {
+    this.authService.logout();
+    this.router.navigateByUrl('/');
   }
 }
