@@ -12,6 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { routes } from './routes';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { effects } from './effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,6 +34,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     ProductsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
+    EffectsModule.forRoot(effects),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
