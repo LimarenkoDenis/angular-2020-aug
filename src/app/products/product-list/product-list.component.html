@@ -6,7 +6,7 @@
   <mat-label>Search by products</mat-label>
   <!-- <input [formControl]="searchTextControl" matInput placeholder="Search by products"> -->
   <input #searchTextControl matInput placeholder="Search by products">
-  <mat-hint>Results: {{ getResults(products, searchTextControl.value) }}</mat-hint>
+  <!-- <mat-hint>Results: {{ getResults(products, searchTextControl.value) }}</mat-hint> -->
 </mat-form-field>
 
 
@@ -20,7 +20,7 @@
 
       <ng-template [ngSwitchCase]="'list'">
         <app-card
-          *ngFor="let product of products | filter: searchTextControl.value ; index as i; odd as isOdd"
+          *ngFor="let product of products$ | async | filter: searchTextControl.value ; index as i; odd as isOdd"
           (likeProductEvent)="likeProduct($event)"
           [isOdd]="isOdd"
           [product]="product">
@@ -31,8 +31,6 @@
 </ng-template>
 
 <mat-progress-bar *ngIf="isLoading; else elseBlock" mode="indeterminate"></mat-progress-bar>
-
-
 
 
 <!-- <app-card></app-card>
