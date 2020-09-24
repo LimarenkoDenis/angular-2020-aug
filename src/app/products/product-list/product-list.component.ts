@@ -52,7 +52,7 @@ export class ProductListComponent implements OnInit {
     this.store.dispatch(new FetchProducts());
   }
 
-  likeProduct(id: number ) {
+  likeProduct(id: number ): void {
     console.log('Like - product list', id);
 
   }

@@ -11,6 +11,10 @@ export class AuthService {
     return of(localStorage.getItem('authorized') === 'true');
   }
 
+  getAuthToken(): string {
+    return 'BEARER #kjshdkfjhsdkfjhsdkjgfhskdjvh';
+  }
+
   logIn(): void {
     localStorage.setItem('authorized', 'true');
   }
